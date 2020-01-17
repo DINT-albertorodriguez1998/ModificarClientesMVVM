@@ -1,0 +1,26 @@
+﻿<Window x:Class="ModificarClientesMVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ModificarClientesMVVM"
+        mc:Ignorable="d" Icon="iconos/update.ico"
+        Title="Modificar Patron MVVM" Height="450" Width="800">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Save"
+                        Executed="SaveBinding_Executed"
+                        CanExecute="SaveBinding_CanExecute">
+            
+        </CommandBinding>
+    </Window.CommandBindings>
+    <StackPanel>
+        <ComboBox x:Name="ModificarComboBox" HorizontalAlignment="Left" Padding="10,0,10,0" Margin="10,10,0,0" ItemsSource="{Binding listaClientes}" Width="200" DisplayMemberPath="id" SelectedItem="{Binding seleccionado}"></ComboBox>
+        <TextBlock Margin="10,10,0,0">Identificador</TextBlock>
+        <TextBox x:Name="IdentificadorTextBox" Margin="10,0,10,0" Text="{Binding seleccionado.id}"></TextBox>
+        <TextBlock Margin="10,10,0,0">Nombre</TextBlock>
+        <TextBox x:Name="NombreTextBox" Margin="10,0,10,0" Text="{Binding seleccionado.nombre}"></TextBox>
+        <TextBlock Margin="10,10,0,0">Apellido</TextBlock>
+        <TextBox x:Name="ApellidoTextBox" Margin="10,0,10,0" Text="{Binding seleccionado.apellido}"></TextBox>
+        <Button x:Name="ModificarButton" Command="ApplicationCommands.Save" HorizontalAlignment="Left" Padding="10,0,10,0" Margin="10,10,0,0">Modificar</Button>
+    </StackPanel>
+</Window>
